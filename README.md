@@ -17,7 +17,7 @@ Sometimes the optimal mix is skewed more towards quality modules and sometimes t
 This script optimizes the prod/qual modules at each quality stage in a recycling loop, and prints the number of low-quality inputs to high-quality outputs.
 It also prints out any extra by-products, such as how many higher-quality items will be produced than the one being requested.
 Note the recycler always has four quality modules.
-All of the allowed parameters are shown below, and are also shown with the command `$ python ./main.py --help`:
+All of the allowed parameters are shown below, and are also shown with the command `$ python .factorioqualityoptimizer/main.py --help` or by running it without any arguments:
 
 ```
 This program optimizes prod/qual ratios in factories, and calculates outputs for a given input
@@ -54,7 +54,11 @@ Detailed instructions on how to setup the required python environment is beyond 
 2. use `git clone` to get a copy of this repository
 3. use `virtualenv` to setup a virtual environment
 4. run `pip install -r requirements.txt`
-5. run `python ./main.py {--args}` to run the script
+5. run `python .factorioqualityoptimizer/main.py {--args}` to run the script
+
+On Systems that have nix installed you can also do:
+
+`nix run github:scottmsul/FactorioQualityOptimizer -- {--args}`
 
 ## Examples
 
@@ -70,6 +74,7 @@ python ./main.py
 Output:
 
 ```
+
 optimizing recycling loop that turns ingredient quality 1 into product quality 5
 
 q1 input per q5 output: 79.87855759632312
@@ -105,7 +110,7 @@ q3 output: 0.08162732229731934
 
 Now let's try the same as above but optimizing for rare outputs. We change `--ending-quality 2` to `--ending-quality 3`:
 ```
-$ python ./main.py --productivity-tier 3 --quality-tier 3 --module-quality 2 --starting-quality 1 --ending-quality 3 --max-quality 3 --module-slots 5 --additional-prod 50
+$ python ./factorioqualityoptimizer/main.py --productivity-tier 3 --quality-tier 3 --module-quality 2 --starting-quality 1 --ending-quality 3 --max-quality 3 --module-slots 5 --additional-prod 50
 
 optimizing recycling loop that turns ingredient quality 1 into product quality 3
 

@@ -1,2 +1,9 @@
 venv/*
 */__pycache__/
+
+# poetry
+dist/
+
+# nix
+.direnv/
+result
