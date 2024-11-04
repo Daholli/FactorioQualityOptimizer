@@ -58,7 +58,7 @@ Detailed instructions on how to setup the required python environment is beyond 
 
 On Systems that have nix installed you can also do:
 
-`nix run github:scottmsul/FactorioQualityOptimizer -- {--args}`
+`nix run github:Daholli/FactorioQualityOptimizer -- {--args}`
 
 ## Examples
 
