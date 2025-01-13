@@ -317,6 +317,7 @@ class LinearSolver:
             'module_slots': mining_drill_data['module_slots'],
             'crafting_speed': mining_drill_data['mining_speed'],
             'crafting_categories': mining_drill_data['resource_categories'],
+            'allowed_effects': ['speed'],
             # technically big mining drills have less resource drain (and an effective resource prod bonus)
             # but I don't see this is in the json file.
             # I think this is unlikely to affect overall results (i.e. prod/qual ratios)
@@ -348,7 +349,12 @@ class LinearSolver:
 
         productivity_research = 0 if recipe_key not in self.productivity_research.keys() else self.productivity_research[recipe_key]
 
-        for recipe_quality, num_qual_modules, num_beaconed_speed_modules in itertools.product(recipe_qualities, num_possible_qual_modules, self.possible_num_beaconed_speed_modules):
+        if 'speed' in crafting_machine_data['allowed_effects']:
+            possible_num_beaconed_speed_modules = self.possible_num_beaconed_speed_modules
+        else:
+            possible_num_beaconed_speed_modules = [0]
+
+        for recipe_quality, num_qual_modules, num_beaconed_speed_modules in itertools.product(recipe_qualities, num_possible_qual_modules, possible_num_beaconed_speed_modules):
             if allow_productivity:
                 num_prod_modules = crafting_machine_module_slots - num_qual_modules
             else:
