@@ -1,0 +1,36 @@
+
+{
+    "data": "data/space-age-2.0.11.json",
+    "quality_module_tier": 3,
+    "quality_module_quality": "legendary",
+    "prod_module_tier": 3,
+    "prod_module_quality": "legendary",
+    "speed_module_tier": 3,
+    "speed_module_quality": "legendary",
+    "building_quality": "legendary",
+    "max_quality_unlocked": "legendary",
+    "module_cost": 1.0,
+    "building_cost": 1.0,
+    "allow_byproducts": true,
+    "inputs": [
+        {
+            "key": "lava",
+            "quality": "normal",
+            "resource": false,
+            "cost": 0.1
+        },
+        {
+            "key": "calcite",
+            "quality": "normal",
+            "resource": true,
+            "cost": 1.0
+        }
+    ],
+    "outputs": [
+        {
+            "key": "iron-plate",
+            "quality": "legendary",
+            "amount": 1.0
+        }
+    ]
+}
